@@ -124,6 +124,12 @@ public:
         cout << "You mined " << coal << " coal, " << iron << " iron, and " << diamonds << " diamonds!\n";
         cout << "Earned: " << earnings << "\n";
     }
+
+    void checkBalance(const string& username) {
+        if (users.find(username) != users.end()) {
+            cout << "Your balance: " << users[username].balance << "\n";
+        }
+    }
 };
 
 int main() {
@@ -156,7 +162,7 @@ int main() {
     }
 
     while (loggedIn) {
-        cout << "1. Deposit\n2. Transfer\n3. Take Credit\n4. Repay Credit\n5. Mine Resources\n6. Logout\nChoice: ";
+        cout << "1. Deposit\n2. Transfer\n3. Take Credit\n4. Repay Credit\n5. Mine Resources\n6. Check Balance\n7. Logout\nChoice: ";
         cin >> choice;
 
         if (choice == 1) {
@@ -179,6 +185,8 @@ int main() {
             bank.repayCredit(username, amount);
         } else if (choice == 5) {
             bank.mineResources(username);
+        } else if (choice == 6) {
+            bank.checkBalance(username);
         } else {
             loggedIn = false;
         }

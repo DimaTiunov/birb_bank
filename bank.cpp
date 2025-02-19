@@ -19,7 +19,7 @@ struct User {
 class Bank {
 private:
     unordered_map<string, User> users;
-    const string dataFile = "bank_data.json";
+    const string dataFile = "data/bank_data.json";
     string language = "en";
 
     void loadData() {

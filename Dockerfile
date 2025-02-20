@@ -35,7 +35,7 @@ RUN g++ -o bank bank.cpp -I/opt/vcpkg/installed/x64-linux/include
 FROM alpine:3.21.2
 
 # Установка зависимостей для выполнения бинарного файла
-RUN apk add --no-cache libstdc++ bash
+RUN apk add --no-cache libstdc++
 
 # Копирование собранного бинарного файла из этапа сборки
 COPY --from=builder /app/bank /app/bank
